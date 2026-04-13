@@ -670,16 +670,21 @@
                 padding: 1rem 2rem;
             }
 
+            .hero {
+                min-height: 100dvh;
+            }
+
             .hero-inner {
                 display: flex;
                 flex-direction: column;
                 gap: 0;
                 padding: 0;
+                padding-top: 80px;
             }
 
             #lottie-hero {
                 width: 100%;
-                min-height: 500px;
+                height: calc(100dvh - 80px - 180px);
                 order: -1;
             }
 
@@ -713,19 +718,20 @@
             }
 
             .hero {
-                padding-top: 70px;
-                min-height: 80vh;
+                padding-top: 0;
+                min-height: 100dvh;
             }
 
             .hero-inner {
                 flex-direction: column;
                 padding: 0;
                 gap: 0;
+                padding-top: 70px;
             }
 
             #lottie-hero {
                 width: 100%;
-                min-height: 60vh;
+                height: calc(100dvh - 70px - 150px);
                 order: -1;
             }
 
