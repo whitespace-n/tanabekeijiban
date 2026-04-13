@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>特定商取引法に基づく表示 | みんなのたなべ掲示板</title>
+    <meta name="description" content="みんなのたなべ掲示板の特定商取引法に基づく表示ページです。">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #3ECFB2;
+            --green-dark: #2aaa90;
+            --green-light: #e8faf6;
+            --black: #1a1a1a;
+            --dark-gray: #666666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== ナビゲーション ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(62, 207, 178, 0.1);
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--green);
+            font-family: 'Outfit', sans-serif;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== メインコンテンツ ===== */
+        main {
+            margin-top: 80px;
+            padding: 4rem 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--green);
+            border-bottom: 2px solid var(--green-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .info-table tr {
+            border-bottom: 1px solid var(--green-light);
+        }
+
+        .info-table th {
+            text-align: left;
+            padding: 1rem;
+            background-color: var(--green-light);
+            font-weight: 600;
+            color: var(--black);
+            width: 200px;
+        }
+
+        .info-table td {
+            padding: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .info-table tr:hover {
+            background-color: var(--light-gray);
+        }
+
+        .note {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--green);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .note p {
+            margin-bottom: 0.5rem;
+        }
+
+        .note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== フッター ===== */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 3rem;
+            margin-top: 6rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== レスポンシブ ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            main {
+                margin-top: 70px;
+                padding: 2rem 1.5rem;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .info-table th {
+                width: 120px;
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .info-table td {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .note {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="/" class="logo">みんなのたなべ掲示板</a>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <h1 class="page-title">特定商取引法に基づく表示</h1>
+
+        <!-- 事業者情報 -->
+        <section class="section">
+            <h2>事業者情報</h2>
+            <table class="info-table">
+                <tr>
+                    <th>事業者名</th>
+                    <td>株式会社ホワイトスペース</td>
+                </tr>
+                <tr>
+                    <th>本社所在地</th>
+                    <td>〒646-1434 和歌山県田辺市中辺路町温川170</td>
+                </tr>
+                <tr>
+                    <th>代表者</th>
+                    <td>AisuFumiya</td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td>0739-64-1717</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 商品・サービスについて -->
+        <section class="section">
+            <h2>商品・サービスについて</h2>
+            <table class="info-table">
+                <tr>
+                    <th>提供内容</th>
+                    <td>みんなのたなべ掲示板アプリ（SNS型地域掲示板サービス）</td>
+                </tr>
+                <tr>
+                    <th>利用料金</th>
+                    <td>無料</td>
+                </tr>
+                <tr>
+                    <th>支払い方法</th>
+                    <td>不適用（無料サービス）</td>
+                </tr>
+                <tr>
+                    <th>商品・サービス提供時期</th>
+                    <td>登録完了後、即座にご利用いただけます</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 返品・キャンセルについて -->
+        <section class="section">
+            <h2>返品・キャンセルについて</h2>
+            <p>本サービスは無料の情報提供サービスであるため、返品・返金の対象外です。</p>
+        </section>
+
+        <!-- 利用規約 -->
+        <section class="section">
+            <h2>利用規約</h2>
+            <p>本サービスの利用にあたっては、利用者様の責任において行っていただきます。</p>
+            <div class="note">
+                <p><strong>禁止事項</strong></p>
+                <p>以下の行為は禁止とさせていただきます：</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>公序良俗に反する内容の投稿</li>
+                    <li>他者を誹謗中傷する内容の投稿</li>
+                    <li>広告・勧誘を目的とした投稿</li>
+                    <li>その他不適切と判断される行為</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 個人情報の取り扱い -->
+        <section class="section">
+            <h2>個人情報の取り扱い</h2>
+            <p>お客様の個人情報は、サービス提供に必要な範囲内でのみ利用いたします。</p>
+            <p>詳細は、別途定めるプライバシーポリシーをご参照ください。</p>
+        </section>
+
+        <!-- 免責事項 -->
+        <section class="section">
+            <h2>免責事項</h2>
+            <div class="note">
+                <p>本サービスに掲載されている情報の正確性・完全性を保証するものではありません。</p>
+                <p>本サービスの利用によって生じた損害について、当社は一切責任を負いません。</p>
+                <p>ユーザー間の紛争・トラブルについても、当社は一切責任を負いません。</p>
+            </div>
+        </section>
+
+        <!-- 問い合わせ -->
+        <section class="section">
+            <h2>お問い合わせ</h2>
+            <p>本サービスに関するご質問やご不明な点がございましたら、下記までお問い合わせください。</p>
+            <table class="info-table">
+                <tr>
+                    <th>電話</th>
+                    <td>0739-64-1717</td>
+                </tr>
+                <tr>
+                    <th>営業時間</th>
+                    <td>平日 9:00～18:00</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 更新日 -->
+        <section class="section">
+            <p style="text-align: center; font-size: 0.9rem; color: var(--dark-gray);">
+                最終更新日：2026年4月13日
+            </p>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2026 みんなのたなべ掲示板</p>
+    </footer>
+</body>
+</html>

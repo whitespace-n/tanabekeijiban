@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>みんなのたなべ掲示板 | 田辺市のSNS型掲示板</title>
+    <meta name="description" content="田辺市の情報をシェアするSNS型掲示板アプリ。イベント・グルメ・求人情報など、田辺の「今」をみんなでシェア。">
+    <meta name="keywords" content="田辺市,掲示板,SNS,地域情報">
+    <link rel="canonical" href="https://tanabekeijiban.com">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "みんなのたなべ掲示板",
+      "url": "https://tanabekeijiban.com"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #3ECFB2;
+            --green-dark: #2aaa90;
+            --green-light: #e8faf6;
+            --black: #1a1a1a;
+            --dark-gray: #666666;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== ナビゲーション ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(62, 207, 178, 0.1);
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--green);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .nav-cta {
+            padding: 0.7rem 2rem;
+            background-color: var(--green);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(62, 207, 178, 0.2);
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(62, 207, 178, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(62, 207, 178, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.8rem, 5vw, 5.5rem);
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--dark-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--green);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(62, 207, 178, 0.2);
+        }
+
+        .hero-cta:hover {
+            background-color: var(--green-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(62, 207, 178, 0.3);
+        }
+
+        #lottie-hero {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== Smartphone Image セクション ===== */
+        .smartphone-section {
+            padding: 6rem 3rem;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .smartphone-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .smartphone-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .smartphone-image.fade-in {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* ===== Concept セクション ===== */
+        .concept {
+            padding: 8rem 3rem;
+            background-color: var(--white);
+        }
+
+        .concept-header {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .concept-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .concept-header p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .concept-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .concept-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .concept-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .concept-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+        }
+
+        .concept-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .concept-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .concept-item.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Features ===== */
+        .features {
+            padding: 8rem 3rem;
+            background-color: #f0f0f0;
+        }
+
+        .features-header {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .features-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--green);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out 0s, box-shadow 0.3s ease, filter 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(62, 207, 178, 0.15);
+        }
+
+        .feature-card.fade-in:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(62, 207, 178, 0.15);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--green-dark);
+        }
+
+        .feature-card p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        /* ===== How to Use ===== */
+        .howto {
+            padding: 8rem 3rem;
+            background-color: var(--white);
+        }
+
+        .howto-header {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .howto-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .howto-steps {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .step.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 8px 20px rgba(62, 207, 178, 0.2);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+        }
+
+        .step p {
+            color: var(--dark-gray);
+        }
+
+        /* ===== Local Board セクション ===== */
+        .local-board {
+            padding: 8rem 3rem;
+            background-color: var(--white);
+        }
+
+        .local-board-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(62, 207, 178, 0.08) 0%, rgba(62, 207, 178, 0.03) 100%);
+            border: 2px solid rgba(62, 207, 178, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .local-board-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: var(--green);
+        }
+
+        .local-board-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .local-board-content p {
+            margin-bottom: 1rem;
+        }
+
+        .local-board-content strong {
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .local-board-location {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(62, 207, 178, 0.3);
+        }
+
+        .local-board-container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .local-board-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .local-board-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(62, 207, 178, 0.2);
+            text-align: left;
+        }
+
+        .local-board-section h3 {
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .local-board-section h4 {
+            font-size: 1.1rem;
+            color: var(--green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .local-board-section p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .local-board-info {
+            background-color: rgba(62, 207, 178, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--green);
+        }
+
+        .local-board-info p {
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .local-board-notes {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(255, 193, 7, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .local-board-notes p {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 8rem 3rem;
+            background-color: var(--white);
+        }
+
+        .faq-header {
+            max-width: 1400px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .faq-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .faq-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(62, 207, 178, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .faq-item.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e8e8e8;
+        }
+
+        .faq-question.active {
+            background-color: var(--green);
+            color: var(--white);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #f0f0f0;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem 2rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== Final CTA ===== */
+        .final-cta {
+            padding: 8rem 3rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta .cta-btn {
+            padding: 1.1rem 3.5rem;
+            background-color: var(--white);
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .final-cta .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid rgba(62, 207, 178, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        footer a {
+            color: var(--green);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .hero-inner {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 2.5rem;
+            }
+
+            #lottie-hero {
+                order: -1;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(2.8rem, 7vw, 4.2rem);
+            }
+
+            .concept-grid,
+            .features-grid,
+            .howto-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .howto-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .hero-inner {
+                flex-direction: column;
+                padding: 4rem 1.5rem;
+            }
+
+            #lottie-hero {
+                min-height: 300px;
+                order: -1;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .concept,
+            .features,
+            .howto,
+            .final-cta {
+                padding: 4rem 1.5rem;
+            }
+
+            .concept-number {
+                font-size: 2.5rem;
+            }
+
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .howto-steps {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1608px) {
+            .hero-text h1 br {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const APP_URL = "https://tanabekeijiban.flutterflow.app/home";
+    </script>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">みんなのたなべ掲示板</div>
+        <a href="#" class="nav-cta cta-btn">掲示板へ</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>たなべの今を、<br>みんなでシェア。</h1>
+                <p>田辺市専用のSNS型掲示板。イベント・グルメ・求人情報など、地域の「今」がわかる。</p>
+                <a href="#" class="hero-cta cta-btn">今すぐ始める</a>
+            </div>
+            <div id="lottie-hero">
+                <div id="lottie-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smartphone Image -->
+    <section class="smartphone-section">
+        <div class="smartphone-container">
+            <img src="images/smartphone.png" alt="みんなのたなべ掲示板 アプリ画面" class="smartphone-image">
+        </div>
+    </section>
+
+    <!-- Concept -->
+    <section class="concept">
+        <div class="concept-header">
+            <h2>5つの情報カテゴリ</h2>
+            <p>田辺市の暮らしに必要な情報をカテゴリ分けして提供します。</p>
+        </div>
+        <div class="concept-grid">
+            <div class="concept-item">
+                <div class="concept-number">01</div>
+                <h3>つぶやき</h3>
+                <p>日常のつぶやき。天気や季節の話題を気軽に共有。</p>
+            </div>
+            <div class="concept-item">
+                <div class="concept-number">02</div>
+                <h3>イベント</h3>
+                <p>まつり、フェスティバル、セミナー。田辺の最新イベント情報。</p>
+            </div>
+            <div class="concept-item">
+                <div class="concept-number">03</div>
+                <h3>グルメ</h3>
+                <p>地元のおすすめ。隠れた名店から人気スポットまで。</p>
+            </div>
+            <div class="concept-item">
+                <div class="concept-number">04</div>
+                <h3>しごと</h3>
+                <p>求人・アルバイト・梅やみかんの収穫。最新の仕事の情報。</p>
+            </div>
+            <div class="concept-item">
+                <div class="concept-number">05</div>
+                <h3>熊野古道</h3>
+                <p>世界遺産の最新情報。トレッキングコースや見どころ。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-header">
+            <h2>なぜ必要なのか</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>情報をひとつに</h3>
+                <p>田辺の情報を集約し、「今、何が起こっているのか」がわかる。</p>
+            </div>
+            <div class="feature-card">
+                <h3>リアルタイム性</h3>
+                <p>地域の最速の「今」をみんなでシェアできますように。</p>
+            </div>
+            <div class="feature-card">
+                <h3>みんなとつながる</h3>
+                <p>SNSのように、気軽に情報をコメント・いいねできるプラットフォームへ。</p>
+            </div>
+            <div class="feature-card">
+                <h3>田辺にフォーカス</h3>
+                <p>田辺市だけの掲示板。地域に特化した、必要な情報だけを。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use -->
+    <section class="howto">
+        <div class="howto-header">
+            <h2>使い方は3ステップ</h2>
+        </div>
+        <div class="howto-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>アクセス</h3>
+                <p>このページからアプリにアクセス</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>登録</h3>
+                <p>メールアドレスで無料登録</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>スタート</h3>
+                <p>投稿・閲覧を楽しむ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-header">
+            <h2>よくある質問</h2>
+        </div>
+        <div class="faq-content">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>本当に無料で使えるのですか？</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>このプロジェクトは、最新のクラウド技術（Firebaseなどの無料枠）を最大限に活用して構築しているため、大きな維持費をかけずに運営できています。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>ログインはなぜ必要なのですか？</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>掲示板の「安心・安全」を守るためです。誰でも匿名で書き込めるようにすると、残念ながら荒らしや宣伝が増えてしまいます。最低限のアカウントを作成いただき、責任ある温かいコミュニティを維持しています。
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>どんなことを投稿してもいいのですか？</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>田辺市に関連することなら、基本的には何でもOKです！</p>
+                    <p>例えば：</p>
+                    <ul style="margin: 1rem 0 0 1.5rem; color: var(--dark-gray);">
+                        <li>「〇〇神社の桜が綺麗だった」「おすすめのランチは？」などの日常のつぶやき</li>
+                        <li>「地域のお祭り」「お店のオープン情報」などのイベント案内</li>
+                        <li>「仕事を探している」「人手不足で困っている」などの相談</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">ただし、公序良俗に反するものや、誰かを傷つける内容はご遠慮ください。削除依頼はtanabekeijiban@gmail.comまで</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Board -->
+    <section class="local-board">
+        <div class="local-board-container">
+            <h2 class="local-board-title">ローカル版のたなべ掲示板からも利用できます</h2>
+            <div class="local-board-content">
+                <p>
+                    <strong>paradisecafe温川</strong>の壁面に設置している、
+                    「みんなのたなべ掲示板」もご利用ください。
+                </p>
+                <p>
+                    ローカル掲示板に貼られた情報は、
+                    Web にもアップロードして、さらに多くの人に届けます。
+                </p>
+            </div>
+
+            <!-- 郵送受付セクション -->
+            <div class="local-board-section">
+                <h3>郵送でも受付しております</h3>
+                <p>遠方でなかなかお店に来れない。忙しくて時間が作れない。そんな方でも、「みんなのたなべ掲示板」では掲載物の郵送での受付も承っております！</p>
+            </div>
+
+            <!-- 宛先 -->
+            <div class="local-board-section">
+                <h4>宛先</h4>
+                <div class="local-board-info">
+                    <p>〒646-1434</p>
+                    <p>和歌山県田辺市中辺路町温川170</p>
+                    <p>「paradisecafe温川 みんなのたなべ掲示板」宛</p>
+                    <p style="margin-top: 1rem; font-weight: 600;">TEL: 0739-64-0888</p>
+                </div>
+            </div>
+
+            <!-- 方法 -->
+            <div class="local-board-section">
+                <h4>✉️ 方法</h4>
+                <p>チラシやその他掲載物を封筒に入れてお送りください。</p>
+            </div>
+
+            <!-- 注釈 -->
+            <div class="local-board-notes">
+                <p>※掲示スペースには限りがあるため、内容やサイズによって調整させていただく場合があります。</p>
+                <p>※掲載物の期限が過ぎたものはこちらで撤去・廃棄させていただきます。</p>
+            </div>
+
+            <div class="local-board-location">
+                paradisecafe温川
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>田辺のコミュニティへ。</h2>
+        <a href="#" class="cta-btn">アプリを開く</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 みんなのたなべ掲示板</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+            <a href="/tokutei.html">特定商取引法に基づく表示</a>
+        </p>
+    </footer>
+
+    <script>
+        // CTA リンク
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            btn.href = APP_URL;
+        });
+
+        // Lottie 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('lottie-container');
+            if (container) {
+                lottie.loadAnimation({
+                    container: container,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'images/hero_anime.json',
+                    assetsPath: 'images/images/'
+                });
+            }
+        });
+
+        // FAQ アコーディオン
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // すべての FAQ をクローズ
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+
+                // クリックされた FAQ をトグル
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in');
+                    }, index * 100); // Stagger animation by 100ms
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to multiple elements
+        const animationTargets = [
+            '.concept-item',
+            '.feature-card',
+            '.step',
+            '.local-board-container',
+            '.faq-item',
+            '.smartphone-image'
+        ];
+
+        animationTargets.forEach(selector => {
+            document.querySelectorAll(selector).forEach(element => {
+                fadeInObserver.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+# GitHub Pages Configuration for みんなのたなべ掲示板
+
+# Jekyll設定 - 処理を抑制する
+include: [".nojekyll"]
+
+# サイト情報
+title: みんなのたなべ掲示板
+description: 田辺市のイベント・グルメ・熊野古道・しごと情報をみんなでシェア
+url: "https://tanabekeijiban.com"
+author: みんなのたなべ掲示板
+
+# ビルド設定
+theme: null
+plugins: []
+
+# 静的ファイルを処理しない
+exclude:
+  - .git
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
