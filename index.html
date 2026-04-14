@@ -8,22 +8,51 @@
 
     <title>みんなのたなべ掲示板 | 田辺市のSNS型掲示板</title>
     <meta name="description" content="田辺市の情報をシェアするSNS型掲示板アプリ。イベント・グルメ・求人情報など、田辺の「今」をみんなでシェア。">
-    <meta name="keywords" content="田辺市,掲示板,SNS,地域情報">
+    <meta name="keywords" content="田辺市,掲示板,SNS,地域情報,熊野古道,和歌山">
     <link rel="canonical" href="https://tanabekeijiban.com">
+
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tanabekeijiban.com">
+    <meta property="og:title" content="みんなのたなべ掲示板 | 田辺市のSNS型掲示板">
+    <meta property="og:description" content="田辺市の情報をシェアするSNS型掲示板アプリ。イベント・グルメ・求人情報など、田辺の「今」をみんなでシェア。">
+    <meta property="og:image" content="https://tanabekeijiban.com/images/main2.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="みんなのたなべ掲示板">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="みんなのたなべ掲示板 | 田辺市のSNS型掲示板">
+    <meta name="twitter:description" content="田辺市の情報をシェアするSNS型掲示板アプリ。イベント・グルメ・求人情報など、田辺の「今」をみんなでシェア。">
+    <meta name="twitter:image" content="https://tanabekeijiban.com/images/main2.png">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "みんなのたなべ掲示板",
-      "url": "https://tanabekeijiban.com"
+      "url": "https://tanabekeijiban.com",
+      "description": "田辺市の情報をシェアするSNS型掲示板アプリ。イベント・グルメ・求人情報など、田辺の「今」をみんなでシェア。",
+      "applicationCategory": "SocialNetworkingApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ja",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      }
     }
     </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233ECFB2'/><text x='16' y='23' font-family='sans-serif' font-weight='900' font-size='20' fill='white' text-anchor='middle'>T</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233ECFB2'/><text x='16' y='23' font-family='sans-serif' font-weight='900' font-size='20' fill='white' text-anchor='middle'>T</text></svg>">
+    <meta name="theme-color" content="#3ECFB2">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
@@ -79,62 +108,133 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 3rem;
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(62, 207, 178, 0.1);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .logo {
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: var(--green);
+            font-size: 1.05rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            color: var(--black);
             font-family: 'Outfit', sans-serif;
         }
 
         .nav-cta {
-            padding: 0.7rem 2rem;
-            background-color: var(--green);
+            padding: 0.65rem 1.8rem;
+            background-color: var(--black);
             color: var(--white);
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.88rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.01em;
         }
 
         .nav-cta:hover {
-            background-color: var(--green-dark);
+            background-color: #333;
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(62, 207, 178, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            padding-left: 2.1rem;
+            padding-right: 2.1rem;
         }
 
-        /* ===== Hero (Lottie Only) ===== */
+        /* ===== Hero (Unified 2-column) ===== */
         .hero {
             position: relative;
             width: 100%;
-            height: 100vh;
-            display: flex;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(62, 207, 178, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            background-color: var(--white);
             padding-top: 80px;
             overflow: hidden;
         }
 
-        .hero::before {
+        .hero-left {
+            padding: 4rem 4rem 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-left h1 {
+            font-size: clamp(2.8rem, 4.5vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-left p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 460px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            background-color: var(--green);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 9999px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
+            box-shadow: 0 4px 16px rgba(62, 207, 178, 0.2);
+            letter-spacing: 0.01em;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(62, 207, 178, 0.45);
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .hero-right::before {
             content: '';
             position: absolute;
-            top: 10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(62, 207, 178, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130%;
+            height: 130%;
+            background: radial-gradient(circle, rgba(62, 207, 178, 0.13) 0%, transparent 65%);
             pointer-events: none;
+            z-index: 0;
         }
 
         #lottie-hero {
@@ -145,56 +245,24 @@
             justify-content: center;
             position: relative;
             z-index: 2;
-        }
-
-        /* ===== Hero Intro ===== */
-        .hero-intro {
-            padding: 4rem 3rem;
-            background-color: var(--white);
-            text-align: center;
-        }
-
-        .hero-intro-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-intro h1 {
-            font-size: clamp(6.5rem, 5vw, 4rem);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            color: var(--black);
-        }
-
-        .hero-intro p {
-            font-size: 1.1rem;
-            color: var(--dark-gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background-color: var(--green);
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(62, 207, 178, 0.2);
-        }
-
-        .hero-cta:hover {
-            background-color: var(--green-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(62, 207, 178, 0.3);
+            padding: 2rem;
         }
 
         /* ===== Smartphone Image セクション ===== */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+                filter: drop-shadow(0 24px 40px rgba(62, 207, 178, 0.18));
+            }
+
+            50% {
+                transform: translateY(-16px);
+                filter: drop-shadow(0 44px 60px rgba(62, 207, 178, 0.32));
+            }
+        }
+
         .smartphone-section {
             padding: 6rem 3rem;
             background-color: var(--white);
@@ -208,36 +276,40 @@
 
         .smartphone-image {
             width: 100%;
-            max-width: 600px;
+            max-width: 580px;
             height: auto;
             display: block;
             margin: 0 auto;
             border-radius: 12px;
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: perspective(1000px) rotateX(15deg) translateY(60px) scale(0.9);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .smartphone-image.fade-in {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
+            animation: float 2.8s ease-in-out 0.9s infinite;
         }
 
         /* ===== Concept セクション ===== */
         .concept {
             padding: 8rem 3rem;
-            background-color: var(--white);
+            background-color: #F4F6F8;
         }
 
         .concept-header {
             max-width: 1400px;
-            margin: 0 auto 6rem;
+            margin: 0 auto 5rem;
             text-align: center;
         }
 
         .concept-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
             color: var(--black);
         }
@@ -253,38 +325,22 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
         }
 
         .concept-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .concept-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--green);
-            margin-bottom: 1rem;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .concept-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--black);
-        }
-
-        .concept-item p {
-            color: var(--dark-gray);
-            line-height: 1.7;
-        }
-
-        .concept-item {
+            position: relative;
+            overflow: hidden;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid #E5E7EB;
+            padding: 2.5rem 2rem 3rem;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
         }
 
         .concept-item.fade-in {
@@ -292,21 +348,66 @@
             transform: translateY(0);
         }
 
+        .concept-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(62, 207, 178, 0.18), 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .concept-item.fade-in:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(62, 207, 178, 0.18), 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .concept-number {
+            position: absolute;
+            bottom: -0.75rem;
+            right: 0.75rem;
+            font-size: 7.5rem;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            color: var(--green);
+            opacity: 0.09;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -0.05em;
+        }
+
+        .concept-item h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--black);
+            position: relative;
+            z-index: 1;
+        }
+
+        .concept-item p {
+            color: var(--dark-gray);
+            line-height: 1.75;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
         /* ===== Features ===== */
         .features {
             padding: 8rem 3rem;
-            background-color: #f0f0f0;
+            background-color: var(--white);
         }
 
         .features-header {
             max-width: 1400px;
-            margin: 0 auto 6rem;
-            text-align: center;
+            margin: 0 auto 5rem;
+            text-align: left;
         }
 
         .features-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0;
             color: var(--black);
         }
 
@@ -314,17 +415,15 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 4rem;
         }
 
         .feature-card {
-            background-color: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--green);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out 0s, box-shadow 0.3s ease, filter 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 3rem 0;
+            border-top: 3px solid var(--black);
+            background: transparent;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-color 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
         }
@@ -335,41 +434,63 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(62, 207, 178, 0.15);
+            border-top-color: var(--green);
         }
 
         .feature-card.fade-in:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(62, 207, 178, 0.15);
+            border-top-color: var(--green);
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--green);
+            flex-shrink: 0;
+        }
+
+        .feature-card:hover h3,
+        .feature-card.fade-in:hover h3 {
             color: var(--green-dark);
         }
 
         .feature-card p {
             color: var(--dark-gray);
-            line-height: 1.7;
+            line-height: 1.85;
+            font-size: 0.95rem;
         }
 
         /* ===== How to Use ===== */
         .howto {
             padding: 8rem 3rem;
-            background-color: var(--white);
+            background-color: var(--green-light);
         }
 
         .howto-header {
             max-width: 1400px;
-            margin: 0 auto 6rem;
+            margin: 0 auto 5rem;
             text-align: center;
         }
 
         .howto-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0;
             color: var(--black);
         }
 
@@ -378,14 +499,20 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            gap: 2rem;
+            position: relative;
         }
 
         .step {
+            position: relative;
             text-align: center;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 12px 40px rgba(62, 207, 178, 0.15);
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
         }
 
         .step.fade-in {
@@ -393,80 +520,72 @@
             transform: translateY(0);
         }
 
-        .step-number {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
+        .step:hover,
+        .step.fade-in:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(62, 207, 178, 0.25);
+        }
+
+        /* 矢印：最後のステップ以外の右側に表示（PC版のみ） */
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -1.4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.6rem;
+            color: var(--green);
             font-weight: 700;
-            margin: 0 auto 1.5rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--green);
             font-family: 'Outfit', sans-serif;
-            box-shadow: 0 8px 20px rgba(62, 207, 178, 0.2);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .step-number::before {
+            content: 'STEP';
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--dark-gray);
+            margin-bottom: 0.2rem;
         }
 
         .step h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
+            font-weight: 800;
             margin-bottom: 0.8rem;
             color: var(--black);
         }
 
         .step p {
             color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
-        /* ===== Local Board セクション ===== */
+        /* ===== LOCAL BOARD ===== */
         .local-board {
             padding: 8rem 3rem;
-            background-color: var(--white);
+            background-color: var(--black);
         }
 
         .local-board-container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, rgba(62, 207, 178, 0.08) 0%, rgba(62, 207, 178, 0.03) 100%);
-            border: 2px solid rgba(62, 207, 178, 0.2);
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .local-board-title {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 1.5rem;
-            color: var(--green);
-        }
-
-        .local-board-content {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: var(--dark-gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .local-board-content p {
-            margin-bottom: 1rem;
-        }
-
-        .local-board-content strong {
-            color: var(--green-dark);
-            font-weight: 600;
-        }
-
-        .local-board-location {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--black);
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(62, 207, 178, 0.3);
-        }
-
-        .local-board-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -477,56 +596,91 @@
             transform: translateY(0);
         }
 
-        .local-board-section {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(62, 207, 178, 0.2);
-            text-align: left;
+        .local-board-title {
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: var(--white);
+            margin-bottom: 2rem;
         }
 
-        .local-board-section h3 {
-            font-size: 1.3rem;
-            color: var(--green-dark);
-            margin-bottom: 1rem;
-        }
-
-        .local-board-section h4 {
-            font-size: 1.1rem;
+        .local-board-accent {
             color: var(--green);
-            margin-bottom: 1rem;
-            font-weight: 600;
         }
 
-        .local-board-section p {
-            color: var(--dark-gray);
+        .local-board-lead {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #A0AEC0;
+            margin-bottom: 1.2rem;
+        }
+
+        .local-board-sub {
+            font-size: 1rem;
             line-height: 1.8;
-            margin-bottom: 0.8rem;
+            color: #718096;
         }
 
-        .local-board-info {
-            background-color: rgba(62, 207, 178, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--green);
+        .local-board-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
         }
 
-        .local-board-info p {
-            margin-bottom: 0.5rem;
-            color: var(--black);
+        .local-board-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--green);
+            margin-bottom: 0.6rem;
         }
 
-        .local-board-notes {
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: rgba(255, 193, 7, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid #ffc107;
+        .local-board-addr-line {
+            font-size: 1rem;
+            color: var(--white);
+            line-height: 1.7;
+            margin-bottom: 0.2rem;
         }
 
-        .local-board-notes p {
+        .local-board-addr-dest {
+            font-size: 0.9rem;
+            color: #A0AEC0;
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .local-board-tel {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.02em;
+        }
+
+        .local-board-how {
             font-size: 0.95rem;
-            color: var(--dark-gray);
-            margin-bottom: 0.5rem;
+            color: #A0AEC0;
+            line-height: 1.7;
+        }
+
+        .local-board-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin: 1.6rem 0;
+        }
+
+        .local-board-footnote {
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 1.6rem;
+        }
+
+        .local-board-footnote p {
+            font-size: 0.8rem;
+            color: #718096;
+            line-height: 1.7;
+            margin-bottom: 0.4rem;
         }
 
         /* ===== FAQ ===== */
@@ -536,30 +690,34 @@
         }
 
         .faq-header {
-            max-width: 1400px;
-            margin: 0 auto 6rem;
+            max-width: 900px;
+            margin: 0 auto 5rem;
             text-align: center;
         }
 
         .faq-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0;
             color: var(--black);
         }
 
         .faq-content {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .faq-item {
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(62, 207, 178, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
+            border-bottom: 2px solid #E5E7EB;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .faq-item:first-child {
+            border-top: 2px solid #E5E7EB;
         }
 
         .faq-item.fade-in {
@@ -568,45 +726,50 @@
         }
 
         .faq-question {
-            padding: 1.5rem 2rem;
-            background-color: #f0f0f0;
+            padding: 1.8rem 0;
+            background: transparent;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
+            gap: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--black);
-            transition: all 0.3s ease;
+            transition: color 0.25s ease;
         }
 
         .faq-question:hover {
-            background-color: #e8e8e8;
+            color: var(--green);
         }
 
         .faq-question.active {
-            background-color: var(--green);
-            color: var(--white);
+            color: var(--green);
         }
 
         .faq-toggle {
-            font-size: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--green);
             transition: transform 0.3s ease;
         }
 
         .faq-question.active .faq-toggle {
-            transform: rotate(180deg);
+            transform: rotate(45deg);
         }
 
         .faq-answer {
             padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #f0f0f0;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            background: transparent;
         }
 
         .faq-answer.active {
-            padding: 1.5rem 2rem;
+            padding: 0 0 1.8rem;
             max-height: 500px;
         }
 
@@ -615,54 +778,78 @@
             line-height: 1.8;
         }
 
+        .faq-answer p+p {
+            margin-top: 1rem;
+        }
+
+        .faq-answer ul {
+            margin: 1rem 0 0 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.3rem;
+        }
+
         /* ===== Final CTA ===== */
         .final-cta {
-            padding: 8rem 3rem;
-            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            padding: 9rem 3rem;
+            background-color: var(--green);
             text-align: center;
             color: var(--white);
         }
 
         .final-cta h2 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 2rem;
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
         }
 
         .final-cta .cta-btn {
             padding: 1.1rem 3.5rem;
             background-color: var(--white);
-            color: var(--green);
+            color: var(--black);
             font-weight: 700;
             font-size: 1rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
             display: inline-block;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.01em;
         }
 
         .final-cta .cta-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+            padding-left: 4rem;
+            padding-right: 4rem;
         }
 
         /* ===== Footer ===== */
         footer {
-            padding: 3rem;
-            border-top: 1px solid rgba(62, 207, 178, 0.2);
+            padding: 6rem 3rem 4rem;
+            border-top: 1px solid #E5E7EB;
             text-align: center;
-            font-size: 0.9rem;
-            color: var(--dark-gray);
+            font-size: 0.78rem;
+            color: #888;
             background-color: var(--white);
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            letter-spacing: 0.04em;
         }
 
         footer a {
-            color: var(--green);
+            color: #888;
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
 
         footer a:hover {
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         /* ===== Responsive ===== */
@@ -671,27 +858,44 @@
                 padding: 1rem 2rem;
             }
 
-            .hero-intro {
-                padding: 3rem 2rem;
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: 100svh;
+                padding-top: 70px;
             }
 
-            .hero-intro h1 {
-                font-size: clamp(6rem, 5vw, 3.5rem);
+            .hero-right {
+                order: -1;
+                min-height: 45vh;
             }
 
-            .hero-intro p {
-                font-size: 1rem;
+            .hero-left {
+                padding: 2.5rem 3rem 4rem;
+                align-items: center;
+                text-align: center;
             }
 
-            .concept-grid,
-            .features-grid,
-            .howto-steps {
+            .hero-left p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .concept-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
             .howto-steps {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .features-grid {
+                gap: 0 2.5rem;
             }
         }
 
@@ -704,28 +908,20 @@
                 font-size: 0.8rem;
             }
 
-            .hero {
-                padding-top: 70px;
-                height: 100dvh;
-                overflow: hidden;
+            .hero-right {
+                min-height: 38vh;
             }
 
-            #lottie-hero {
-                transform: scale(1.8);
+            .hero-left {
+                padding: 1.5rem 1.5rem 3rem;
             }
 
-            .hero-intro {
-                padding: 2rem 0.8rem;
+            .hero-left h1 {
+                font-size: clamp(2.2rem, 9vw, 3rem);
             }
 
-            .hero-intro h1 {
-                font-size: 2.6rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-intro p {
+            .hero-left p {
                 font-size: 0.95rem;
-                margin-bottom: 1.5rem;
             }
 
             .concept,
@@ -738,24 +934,30 @@
                 padding: 3rem 0.8rem;
             }
 
+            .local-board-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
             .concept-number {
-                font-size: 2.5rem;
+                font-size: 5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .features-header {
+                margin-bottom: 3rem;
             }
 
             .step-number {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
 
             .howto-steps {
-                gap: 2rem;
-            }
-        }
-
-        @media (min-width: 1608px) {
-            .hero-text h1 br {
-                display: none;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -772,19 +974,18 @@
         <a href="#" class="nav-cta cta-btn">掲示板へ</a>
     </nav>
 
-    <!-- Hero (Lottie Only) -->
+    <!-- Hero -->
     <section class="hero">
-        <div id="lottie-hero">
-            <div id="lottie-container"></div>
-        </div>
-    </section>
-
-    <!-- Hero Intro (Text) -->
-    <section class="hero-intro">
-        <div class="hero-intro-container">
+        <div class="hero-left">
+            <p class="hero-eyebrow">田辺市のSNS型掲示板</p>
             <h1>たなべの今を、<br>みんなでシェア。</h1>
             <p>田辺市専用のSNS型掲示板。イベント・グルメ・求人情報など、地域の「今」がわかる。</p>
             <a href="#" class="hero-cta cta-btn">今すぐ始める</a>
+        </div>
+        <div class="hero-right">
+            <div id="lottie-hero">
+                <div id="lottie-container"></div>
+            </div>
         </div>
     </section>
 
@@ -888,7 +1089,7 @@
             <div class="faq-item">
                 <div class="faq-question">
                     <span>本当に無料で使えるのですか？</span>
-                    <span class="faq-toggle">▼</span>
+                    <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <p>このプロジェクトは、最新のクラウド技術（Firebaseなどの無料枠）を最大限に活用して構築しているため、大きな維持費をかけずに運営できています。</p>
@@ -898,7 +1099,7 @@
             <div class="faq-item">
                 <div class="faq-question">
                     <span>ログインはなぜ必要なのですか？</span>
-                    <span class="faq-toggle">▼</span>
+                    <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <p>掲示板の「安心・安全」を守るためです。誰でも匿名で書き込めるようにすると、残念ながら荒らしや宣伝が増えてしまいます。最低限のアカウントを作成いただき、責任ある温かいコミュニティを維持しています。
@@ -909,17 +1110,17 @@
             <div class="faq-item">
                 <div class="faq-question">
                     <span>どんなことを投稿してもいいのですか？</span>
-                    <span class="faq-toggle">▼</span>
+                    <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <p>田辺市に関連することなら、基本的には何でもOKです！</p>
                     <p>例えば：</p>
-                    <ul style="margin: 1rem 0 0 1.5rem; color: var(--dark-gray);">
+                    <ul>
                         <li>「〇〇神社の桜が綺麗だった」「おすすめのランチは？」などの日常のつぶやき</li>
                         <li>「地域のお祭り」「お店のオープン情報」などのイベント案内</li>
                         <li>「仕事を探している」「人手不足で困っている」などの相談</li>
                     </ul>
-                    <p style="margin-top: 1rem;">ただし、公序良俗に反するものや、誰かを傷つける内容はご遠慮ください。削除依頼はtanabekeijiban@gmail.comまで</p>
+                    <p>ただし、公序良俗に反するものや、誰かを傷つける内容はご遠慮ください。削除依頼はtanabekeijiban@gmail.comまで</p>
                 </div>
             </div>
         </div>
@@ -928,49 +1129,39 @@
     <!-- Local Board -->
     <section class="local-board">
         <div class="local-board-container">
-            <h2 class="local-board-title">ローカル版のたなべ掲示板からも利用できます</h2>
-            <div class="local-board-content">
-                <p>
-                    <strong>paradisecafe温川</strong>の壁面に設置している、
-                    「みんなのたなべ掲示板」もご利用ください。
+            <!-- 左：コンセプト -->
+            <div class="local-board-left">
+                <h2 class="local-board-title">ローカル版からも<br>利用できます</h2>
+                <p class="local-board-lead">
+                    <span
+                        class="local-board-accent">paradisecafe温川</span>の壁面に設置している「みんなのたなべ掲示板」もご利用ください。ローカル掲示板に貼られた情報は、Webにもアップロードしてさらに多くの人へ届けます。
                 </p>
-                <p>
-                    ローカル掲示板に貼られた情報は、
-                    Web にもアップロードして、さらに多くの人に届けます。
-                </p>
+                <p class="local-board-sub">遠方でなかなかお店に来れない方でも、郵送での掲載物の受付も承っております。</p>
             </div>
 
-            <!-- 郵送受付セクション -->
-            <div class="local-board-section">
-                <h3>郵送でも受付しております</h3>
-                <p>遠方でなかなかお店に来れない。忙しくて時間が作れない。そんな方でも、「みんなのたなべ掲示板」では掲載物の郵送での受付も承っております！</p>
-            </div>
+            <!-- 右：インフォメーションカード -->
+            <div class="local-board-right">
+                <div class="local-board-card">
+                    <p class="local-board-label">ADDRESS</p>
+                    <p class="local-board-addr-line">〒646-1434</p>
+                    <p class="local-board-addr-line">和歌山県田辺市中辺路町温川170</p>
+                    <p class="local-board-addr-dest">「paradisecafe温川 みんなのたなべ掲示板」宛</p>
 
-            <!-- 宛先 -->
-            <div class="local-board-section">
-                <h4>宛先</h4>
-                <div class="local-board-info">
-                    <p>〒646-1434</p>
-                    <p>和歌山県田辺市中辺路町温川170</p>
-                    <p>「paradisecafe温川 みんなのたなべ掲示板」宛</p>
-                    <p style="margin-top: 1rem; font-weight: 600;">TEL: 0739-64-0888</p>
+                    <div class="local-board-divider"></div>
+
+                    <p class="local-board-label">TEL</p>
+                    <p class="local-board-tel">0739-64-0888</p>
+
+                    <div class="local-board-divider"></div>
+
+                    <p class="local-board-label">HOW TO SEND</p>
+                    <p class="local-board-how">チラシやその他掲載物を封筒に入れてお送りください。</p>
+
+                    <div class="local-board-footnote">
+                        <p>※掲示スペースには限りがあるため、内容やサイズによって調整させていただく場合があります。</p>
+                        <p>※掲載物の期限が過ぎたものはこちらで撤去・廃棄させていただきます。</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- 方法 -->
-            <div class="local-board-section">
-                <h4>✉️ 方法</h4>
-                <p>チラシやその他掲載物を封筒に入れてお送りください。</p>
-            </div>
-
-            <!-- 注釈 -->
-            <div class="local-board-notes">
-                <p>※掲示スペースには限りがあるため、内容やサイズによって調整させていただく場合があります。</p>
-                <p>※掲載物の期限が過ぎたものはこちらで撤去・廃棄させていただきます。</p>
-            </div>
-
-            <div class="local-board-location">
-                paradisecafe温川
             </div>
         </div>
     </section>
@@ -984,9 +1175,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 みんなのたなべ掲示板</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-            <!-- <a href="/tokutei.html">特定商取引法に基づく表示</a> -->
-        </p>
+        <p><a href="/tokutei.html">特定商取引法に基づく表示</a></p>
     </footer>
 
     <script>
