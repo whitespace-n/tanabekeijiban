@@ -118,6 +118,9 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            /* GPU 昇格: backdrop-filter のコンポジットコストをスクロールから分離 */
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .logo {
@@ -152,7 +155,8 @@
         .hero {
             position: relative;
             width: 100%;
-            min-height: 100svh;
+            /* --vh は JS で初回ロック済み。svh はフォールバック専用 */
+            min-height: var(--vh, 100svh);
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -223,7 +227,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 60svh;
+            min-height: calc(var(--vh, 100svh) * 0.60);
             overflow: hidden;
         }
 
@@ -251,6 +255,8 @@
             padding: 0;
             transform: scale(1.12);
             transform-origin: center center;
+            /* GPU レイヤー昇格: scale 変化によるレイアウト再計算を防ぐ */
+            will-change: transform;
         }
 
         /* ===== Smartphone Image セクション ===== */
@@ -806,7 +812,7 @@
         }
 
         .final-cta h2 {
-            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             font-weight: 900;
             letter-spacing: -0.03em;
             color: var(--white);
@@ -865,13 +871,13 @@
 
             .hero {
                 grid-template-columns: 1fr;
-                min-height: 100svh;
+                min-height: var(--vh, 100svh);
                 padding-top: 70px;
             }
 
             .hero-right {
                 order: -1;
-                min-height: 55svh;
+                min-height: calc(var(--vh, 100svh) * 0.55);
             }
 
             #lottie-hero {
@@ -918,7 +924,7 @@
             }
 
             .hero-right {
-                min-height: 56svh;
+                min-height: calc(var(--vh, 100svh) * 0.56);
             }
 
             #lottie-hero {
@@ -1192,6 +1198,36 @@
     </footer>
 
     <script>
+        // ── Mobile Viewport Height Fix ─────────────────────────────────────────
+        // iOS Safari は toolbar の出し入れのたびに window.innerHeight を変化させる。
+        // --vh を初回ロード時の値でロックし、HEIGHT のみ変わるリサイズ（= toolbar）
+        // は完全無視することで、svh/dvh 依存のガタつきを根絶する。
+        (function () {
+            var lastWidth = window.innerWidth;
+
+            function applyVH() {
+                document.documentElement.style.setProperty('--vh', window.innerHeight + 'px');
+            }
+
+            applyVH(); // 初回: ページロード直後に確定
+
+            // 向き変更は width も変わるので更新が必要（500ms 待って回転完了後に取得）
+            window.addEventListener('orientationchange', function () {
+                setTimeout(applyVH, 500);
+            });
+
+            // resize: width が変わった場合のみ更新（= 実際のウィンドウリサイズ or 向き変更）
+            // height のみ変化するケースは toolbar の収縮なので無視する
+            window.addEventListener('resize', function () {
+                var w = window.innerWidth;
+                if (w !== lastWidth) {
+                    lastWidth = w;
+                    applyVH();
+                }
+            });
+        })();
+        // ──────────────────────────────────────────────────────────────────────
+
         // CTA リンク
         document.querySelectorAll('.cta-btn').forEach(btn => {
             btn.href = APP_URL;
