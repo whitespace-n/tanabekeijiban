@@ -105,6 +105,32 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-donate {
+            padding: 0.65rem 1.4rem;
+            background-color: transparent;
+            color: var(--green);
+            border: 1.5px solid var(--green);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-donate:hover {
+            background-color: var(--green);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(62, 207, 178, 0.28);
+        }
+
         /* ===== メインコンテンツ ===== */
         main {
             margin-top: 80px;
@@ -272,7 +298,10 @@
     <!-- ナビゲーション -->
     <nav>
         <a href="/" class="logo">みんなのたなべ掲示板</a>
-        <a href="https://tanabekeijiban.flutterflow.app/home" class="nav-cta">掲示板へ</a>
+        <div class="nav-actions">
+            <a href="https://buy.stripe.com/7sY6oH6127IN0Le6MKgIo00" class="nav-donate" target="_blank" rel="noopener noreferrer">寄付する</a>
+            <a href="https://tanabekeijiban.flutterflow.app/home" class="nav-cta">掲示板へ</a>
+        </div>
     </nav>
 
     <!-- メインコンテンツ -->
@@ -347,9 +376,10 @@
             <p>本サービスは無料の情報提供サービスであるため、サービス自体の返品・返金の対象外です。</p>
             <div class="note">
                 <p><strong>寄付に関する返金について</strong></p>
-                <p>寄付後8日以内であれば返金手続きに応じます。返金をご希望の場合は tanabekeijiban@gmail.com までご連絡ください。返金はStripeを通じて処理され、お客様の口座への反映には5〜10営業日程度かかります。8日を超えた場合の返金はお受けできませんのでご了承ください。</p>
+                <p>寄付後8日以内であれば返金手続きに応じます。返金をご希望の場合は tanabekeijiban@gmail.com
+                    までご連絡ください。返金はStripeを通じて処理され、お客様の口座への反映には5〜10営業日程度かかります。8日を超えた場合の返金はお受けできませんのでご了承ください。</p>
             </div>
-            <p>アカウントの削除をご希望の場合は、tanabekeijiban@gmail.com までご連絡ください。</p>
+            <p>アカウントの削除をご希望の場合は、たなべ掲示板WEBアプリのメニュー内にある「アカウントの削除」からお手続きいただくか、tanabekeijiban@gmail.com までご連絡ください。</p>
         </section>
 
         <!-- 利用規約 -->

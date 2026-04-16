@@ -151,6 +151,32 @@
             padding-right: 2.1rem;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-donate {
+            padding: 0.65rem 1.4rem;
+            background-color: transparent;
+            color: var(--green);
+            border: 1.5px solid var(--green);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-donate:hover {
+            background-color: var(--green);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(62, 207, 178, 0.28);
+        }
+
         /* ===== Hero (Unified 2-column) ===== */
         .hero {
             position: relative;
@@ -814,6 +840,140 @@
             transform: translate(3px, -3px);
         }
 
+        /* ===== Donate ===== */
+        .donate {
+            padding: 8rem 3rem;
+            background-color: var(--green-light);
+            text-align: center;
+        }
+
+        .donate-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .donate-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .donate-title {
+            font-size: clamp(2.2rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            color: var(--black);
+        }
+
+        .donate-lead {
+            font-size: 1.05rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .donate-reasons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+            text-align: left;
+        }
+
+        .donate-reason {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.75rem 1.5rem;
+            border: 1px solid rgba(62, 207, 178, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .donate-reason.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .donate-reason-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--green-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .donate-reason-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .donate-reason h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .donate-reason p {
+            font-size: 0.88rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .donate-body {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            line-height: 1.9;
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .donate-cta {
+            display: inline-block;
+            padding: 1.1rem 3.5rem;
+            background-color: var(--green);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 9999px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
+            box-shadow: 0 4px 16px rgba(62, 207, 178, 0.3);
+            letter-spacing: 0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        .donate-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(62, 207, 178, 0.45);
+            padding-left: 4rem;
+            padding-right: 4rem;
+            color: var(--white);
+        }
+
+        .donate-note {
+            font-size: 0.8rem;
+            color: #999;
+            line-height: 1.9;
+        }
+
+        .donate-note a {
+            color: var(--green-dark);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         /* ===== FAQ ===== */
         .faq {
             padding: 8rem 3rem;
@@ -924,8 +1084,32 @@
         }
 
         /* ===== Final CTA ===== */
+        @keyframes ctaReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(70px) scale(0.93);
+                filter: blur(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes ctaBtnReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         .final-cta {
-            padding: 9rem 3rem;
+            padding: 14rem 3rem;
             background-color: var(--green);
             text-align: center;
             color: var(--white);
@@ -938,6 +1122,20 @@
             color: var(--white);
             margin-bottom: 2.5rem;
             line-height: 1.2;
+            opacity: 0;
+        }
+
+        .final-cta.in-view h2 {
+            animation: ctaReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .final-cta-btn-wrap {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        .final-cta.in-view .final-cta-btn-wrap {
+            animation: ctaBtnReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
         }
 
         .final-cta .cta-btn {
@@ -947,7 +1145,7 @@
             font-weight: 700;
             font-size: 1rem;
             border-radius: 9999px;
-            transition: all 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
             display: inline-block;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
             font-family: 'Outfit', sans-serif;
@@ -1070,8 +1268,13 @@
             .smartphone-section,
             .faq,
             .local-board,
-            .about-us {
+            .about-us,
+            .donate {
                 padding: 3rem 0.8rem;
+            }
+
+            .donate-reasons {
+                grid-template-columns: 1fr;
             }
 
             .about-us-links {
@@ -1115,7 +1318,11 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">みんなのたなべ掲示板</div>
-        <a href="#" class="nav-cta cta-btn">掲示板へ</a>
+        <div class="nav-actions">
+            <a href="https://buy.stripe.com/7sY6oH6127IN0Le6MKgIo00" class="nav-donate" target="_blank"
+                rel="noopener noreferrer">寄付する</a>
+            <a href="#" class="nav-cta cta-btn">掲示板へ</a>
+        </div>
     </nav>
 
     <!-- Hero -->
@@ -1310,6 +1517,14 @@
         </div>
     </section>
 
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>田辺のコミュニティへ。</h2>
+        <span class="final-cta-btn-wrap">
+            <a href="#" class="cta-btn">アプリを開く</a>
+        </span>
+    </section>
+
     <!-- About Us -->
     <section class="about-us">
         <div class="about-us-container">
@@ -1339,6 +1554,15 @@
                         <circle cx="12" cy="9" r="2.5" />
                     </svg>
                     <span>〒646-1434 和歌山県田辺市中辺路町温川170</span>
+                </div>
+                <div class="about-us-info-item">
+                    <!-- Mail icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="M2 7l10 7 10-7" />
+                    </svg>
+                    <span>tanabekeijiban@gmail.com</span>
                 </div>
             </div>
 
@@ -1374,10 +1598,64 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <h2>田辺のコミュニティへ。</h2>
-        <a href="#" class="cta-btn">アプリを開く</a>
+    <!-- Donate -->
+    <section class="donate">
+        <div class="donate-container">
+            <p class="donate-eyebrow">SUPPORT US</p>
+            <h2 class="donate-title">このサービスを<br>一緒に支えてください</h2>
+            <p class="donate-lead">みんなのたなべ掲示板は、広告なしで運営される完全無料のサービスです。田辺の情報インフラを守り続けるために、皆さんのご支援をお待ちしています。</p>
+
+            <div class="donate-reasons">
+                <div class="donate-reason">
+                    <div class="donate-reason-icon">
+                        <!-- Server icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="3" width="20" height="6" rx="2" />
+                            <rect x="2" y="12" width="20" height="6" rx="2" />
+                            <circle cx="6" cy="6" r="1" fill="var(--green)" stroke="none" />
+                            <circle cx="6" cy="15" r="1" fill="var(--green)" stroke="none" />
+                        </svg>
+                    </div>
+                    <h3>サーバー・クラウド費用</h3>
+                    <p>Firebase・ホスティングなど、サービスを安定して動かすためのインフラ費用に充てます。</p>
+                </div>
+                <div class="donate-reason">
+                    <div class="donate-reason-icon">
+                        <!-- Wrench icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                    </div>
+                    <h3>開発・改善コスト</h3>
+                    <p>新機能の追加やバグ修正、使いやすさの改善にかかる開発コストに充てます。</p>
+                </div>
+                <div class="donate-reason">
+                    <div class="donate-reason-icon">
+                        <!-- Heart icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>地域コミュニティの維持</h3>
+                    <p>田辺の情報インフラを無料で提供し続けるための、長期的な運営費に充てます。</p>
+                </div>
+            </div>
+
+            <p class="donate-body">
+                寄付は任意で、50円からお気持ちの金額でご支援いただけます。サービスの利用に寄付は一切不要ですが、いただいたご支援はすべてこのサービスの維持・改善に大切に使わせていただきます。</p>
+
+            <a href="https://buy.stripe.com/7sY6oH6127IN0Le6MKgIo00" class="donate-cta" target="_blank"
+                rel="noopener noreferrer">寄付する</a>
+
+            <p class="donate-note">
+                Stripeの安全な決済システムを利用しています。
+            </p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -1482,7 +1760,8 @@
             '.local-board-container',
             '.faq-item',
             '.smartphone-image',
-            '.about-us-card'
+            '.about-us-card',
+            '.donate-reason'
         ];
 
         animationTargets.forEach(selector => {
@@ -1490,6 +1769,19 @@
                 fadeInObserver.observe(element);
             });
         });
+
+        // Final CTA entrance animation
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    ctaObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        const finalCta = document.querySelector('.final-cta');
+        if (finalCta) ctaObserver.observe(finalCta);
     </script>
 </body>
 
