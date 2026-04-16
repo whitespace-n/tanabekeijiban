@@ -1090,6 +1090,7 @@
                 transform: translateY(70px) scale(0.93);
                 filter: blur(6px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1102,6 +1103,7 @@
                 opacity: 0;
                 transform: translateY(40px) scale(0.95);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1234,11 +1236,25 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 1rem 1.5rem;
+                padding: 0.75rem 1rem;
             }
 
             .logo {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .nav-actions {
+                gap: 0.35rem;
+            }
+
+            .nav-donate {
+                padding: 0.5rem 0.85rem;
+                font-size: 0.76rem;
+            }
+
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.76rem;
             }
 
             .hero-right {
