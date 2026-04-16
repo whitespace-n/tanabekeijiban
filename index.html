@@ -694,6 +694,126 @@
             margin-bottom: 0.4rem;
         }
 
+        /* ===== About Us ===== */
+        .about-us {
+            padding: 8rem 3rem;
+            background-color: #F4F6F8;
+        }
+
+        .about-us-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-us-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .about-us-title {
+            font-size: clamp(1.8rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 2.5rem;
+            color: var(--black);
+        }
+
+        .about-us-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-us-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            color: var(--black);
+        }
+
+        .about-us-info-item svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        .about-us-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-us-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 2rem;
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #E5E7EB;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
+                opacity 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .about-us-card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-us-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(62, 207, 178, 0.2);
+            border-color: var(--green);
+        }
+
+        .about-us-card.fade-in:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(62, 207, 178, 0.2);
+            border-color: var(--green);
+        }
+
+        .about-us-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .about-us-card-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--black);
+        }
+
+        .about-us-card-desc {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .about-us-card-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            opacity: 0.55;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .about-us-card:hover .about-us-card-icon {
+            opacity: 1;
+            transform: translate(3px, -3px);
+        }
+
         /* ===== FAQ ===== */
         .faq {
             padding: 8rem 3rem;
@@ -949,8 +1069,13 @@
             .final-cta,
             .smartphone-section,
             .faq,
-            .local-board {
+            .local-board,
+            .about-us {
                 padding: 3rem 0.8rem;
+            }
+
+            .about-us-links {
+                grid-template-columns: 1fr;
             }
 
             .local-board-container {
@@ -1185,6 +1310,70 @@
         </div>
     </section>
 
+    <!-- About Us -->
+    <section class="about-us">
+        <div class="about-us-container">
+            <p class="about-us-eyebrow">ABOUT US</p>
+            <h2 class="about-us-title">運営元について</h2>
+
+            <div class="about-us-info">
+                <div class="about-us-info-item">
+                    <!-- Building icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M9 3v18" />
+                        <path d="M3 9h6" />
+                        <path d="M3 15h6" />
+                        <path d="M13 8h5" />
+                        <path d="M13 12h5" />
+                        <path d="M13 16h5" />
+                    </svg>
+                    <span>WHITESPACE</span>
+                </div>
+                <div class="about-us-info-item">
+                    <!-- Pin icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                        <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                    <span>〒646-1434 和歌山県田辺市中辺路町温川170</span>
+                </div>
+            </div>
+
+            <div class="about-us-links">
+                <a href="https://www.paradisecafe-n.com/" class="about-us-card" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="about-us-card-body">
+                        <p class="about-us-card-name">paradisecafe温川</p>
+                        <p class="about-us-card-desc">掲示板の設置カフェ</p>
+                    </div>
+                    <!-- External link icon -->
+                    <svg class="about-us-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </a>
+                <a href="https://www.ws1981.jp/" class="about-us-card" target="_blank" rel="noopener noreferrer">
+                    <div class="about-us-card-body">
+                        <p class="about-us-card-name">WHITESPACE</p>
+                        <p class="about-us-card-desc">運営会社</p>
+                    </div>
+                    <!-- External link icon -->
+                    <svg class="about-us-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta">
         <h2>田辺のコミュニティへ。</h2>
@@ -1292,7 +1481,8 @@
             '.step',
             '.local-board-container',
             '.faq-item',
-            '.smartphone-image'
+            '.smartphone-image',
+            '.about-us-card'
         ];
 
         animationTargets.forEach(selector => {
