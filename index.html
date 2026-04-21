@@ -610,6 +610,183 @@
             font-size: 0.95rem;
         }
 
+        /* ===== Sign Up ===== */
+        .signup {
+            padding: 8rem 3rem;
+            background-color: var(--white);
+        }
+
+        .signup-container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .signup-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .signup-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .signup-timeline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 3.5rem;
+        }
+
+        /* 縦線 */
+        .signup-timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 28px;
+            bottom: 28px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--green), rgba(62, 207, 178, 0.15));
+            z-index: 0;
+        }
+
+        .signup-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 0 0 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .signup-step:last-child {
+            padding-bottom: 0;
+        }
+
+        .signup-step.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .signup-step-num {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            box-shadow: 0 0 0 6px var(--white), 0 0 0 7px rgba(62, 207, 178, 0.2);
+        }
+
+        .signup-step-num svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .signup-step-card {
+            flex: 1;
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 24px;
+            padding: 1.75rem 2rem;
+            margin-top: 0.25rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .signup-step-card:hover {
+            border-color: rgba(62, 207, 178, 0.4);
+            box-shadow: 0 8px 32px rgba(62, 207, 178, 0.12);
+        }
+
+        .signup-step-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            margin-bottom: 0.4rem;
+        }
+
+        .signup-step-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 0.6rem;
+        }
+
+        .signup-step-card p {
+            color: var(--dark-gray);
+            font-size: 0.93rem;
+            line-height: 1.75;
+        }
+
+        .signup-step-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--green);
+            border-bottom: 1px solid rgba(62, 207, 178, 0.4);
+            padding-bottom: 1px;
+            transition: border-color 0.25s ease, color 0.25s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .signup-step-link:hover {
+            color: var(--green-dark);
+            border-color: var(--green-dark);
+        }
+
+        .signup-step-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .signup-cta-wrap {
+            text-align: center;
+        }
+
+        .signup-cta {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            background-color: var(--green);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 9999px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
+            box-shadow: 0 4px 16px rgba(62, 207, 178, 0.25);
+            letter-spacing: 0.01em;
+        }
+
+        .signup-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(62, 207, 178, 0.45);
+            padding-left: 3.5rem;
+            padding-right: 3.5rem;
+            color: var(--white);
+        }
+
         /* ===== LOCAL BOARD ===== */
         .local-board {
             padding: 8rem 3rem;
@@ -1280,6 +1457,7 @@
             .concept,
             .features,
             .howto,
+            .signup,
             .final-cta,
             .smartphone-section,
             .faq,
@@ -1287,6 +1465,20 @@
             .about-us,
             .donate {
                 padding: 3rem 0.8rem;
+            }
+
+            .signup-timeline::before {
+                left: 22px;
+            }
+
+            .signup-step-num {
+                width: 46px;
+                height: 46px;
+            }
+
+            .signup-step-num svg {
+                width: 20px;
+                height: 20px;
             }
 
             .donate-reasons {
@@ -1401,7 +1593,7 @@
     <!-- Features -->
     <section class="features">
         <div class="features-header">
-            <h2>なぜ必要なのか</h2>
+            <h2>なぜ作ったのか</h2>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -1443,6 +1635,86 @@
                 <div class="step-number">3</div>
                 <h3>スタート</h3>
                 <p>投稿・閲覧を楽しむ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up -->
+    <section class="signup">
+        <div class="signup-container">
+            <p class="signup-eyebrow">HOW TO SIGN UP</p>
+            <h2 class="signup-title">会員登録の仕方</h2>
+
+            <div class="signup-timeline">
+
+                <!-- Step 1 -->
+                <div class="signup-step">
+                    <div class="signup-step-num">
+                        <!-- Link / Globe icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <div class="signup-step-card">
+                        <p class="signup-step-label">STEP 01</p>
+                        <h3>アカウント作成ページへ</h3>
+                        <p>下記リンクから直接アクセスするか、アプリのログインページ内にある「まだアカウントをお持ちでない方はこちら」をタップしてください。</p>
+                        <a href="https://tanabekeijiban.flutterflow.app/signup" class="signup-step-link" target="_blank" rel="noopener noreferrer">
+                            アカウント作成ページを開く
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="signup-step">
+                    <div class="signup-step-num">
+                        <!-- Mail-edit icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+                        </svg>
+                    </div>
+                    <div class="signup-step-card">
+                        <p class="signup-step-label">STEP 02</p>
+                        <h3>メールアドレスとパスワードを入力</h3>
+                        <p>メールアドレスとパスワードを入力し、「アカウントを作成」ボタンを押してください。</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="signup-step">
+                    <div class="signup-step-num">
+                        <!-- Inbox / mail-open icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
+                        </svg>
+                    </div>
+                    <div class="signup-step-card">
+                        <p class="signup-step-label">STEP 03</p>
+                        <h3>確認メールをチェック</h3>
+                        <p>登録したメールアドレスに確認メールが届きます。メール内のリンクをクリックして認証を完了してください。</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="signup-step">
+                    <div class="signup-step-num">
+                        <!-- Check-circle icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div class="signup-step-card">
+                        <p class="signup-step-label">STEP 04</p>
+                        <h3>認証完了 → プロフィール設定</h3>
+                        <p>アプリページに戻り「認証を完了する」ボタンを押してください。簡単なアンケートに回答後、プロフィールの入力に進むと登録完了です。</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="signup-cta-wrap">
+                <a href="#" class="signup-cta cta-btn">アプリを開いて登録する</a>
             </div>
         </div>
     </section>
@@ -1517,7 +1789,7 @@
                     <div class="local-board-divider"></div>
 
                     <p class="local-board-label">TEL</p>
-                    <p class="local-board-tel">0739-64-0888</p>
+                    <p class="local-board-tel">0739-64-1717</p>
 
                     <div class="local-board-divider"></div>
 
@@ -1619,7 +1891,7 @@
         <div class="donate-container">
             <p class="donate-eyebrow">SUPPORT US</p>
             <h2 class="donate-title">このサービスを<br>一緒に支えてください</h2>
-            <p class="donate-lead">みんなのたなべ掲示板は、広告なしで運営される完全無料のサービスです。田辺の情報インフラを守り続けるために、皆さんのご支援をお待ちしています。</p>
+            <p class="donate-lead">みんなのたなべ掲示板は、広告なしで運営される完全無料のサービスです。より良い運営を続けるために、皆さんのご支援をお待ちしています。</p>
 
             <div class="donate-reasons">
                 <div class="donate-reason">
@@ -1773,6 +2045,7 @@
             '.concept-item',
             '.feature-card',
             '.step',
+            '.signup-step',
             '.local-board-container',
             '.faq-item',
             '.smartphone-image',
